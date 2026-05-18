@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Barlow, Barlow_Condensed, Bebas_Neue } from "next/font/google";
 import { LangProvider } from "@/lib/lang-context";
+import { getSiteUrl } from "@/lib/site-url";
 import "./globals.css";
 
 const bebas = Bebas_Neue({
@@ -19,10 +20,20 @@ const barlowCond = Barlow_Condensed({
   variable: "--font-barlow-cond",
 });
 
+const siteUrl = getSiteUrl();
+
 export const metadata: Metadata = {
-  title: "RAW ADVENTURES – Catskiing & Catboarding North Macedonia",
+  metadataBase: siteUrl,
+  title: {
+    default: "RAW ADVENTURES — guided freeride & cat trips",
+    template: "%s · RAW ADVENTURES",
+  },
   description:
-    "Catskiing & Catboarding in the Shar Mountains — North Macedonia.",
+    "Guided catskiing, catboarding and backcountry trips — small groups, local expertise, clear pricing.",
+  openGraph: {
+    type: "website",
+    siteName: "RAW.ADVENTURES",
+  },
 };
 
 export default function RootLayout({

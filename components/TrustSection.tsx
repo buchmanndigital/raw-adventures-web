@@ -1,8 +1,10 @@
 "use client";
 
+import { useHashLink } from "@/components/BasePathContext";
 import { Tx } from "@/components/Tx";
 
 export function TrustSection() {
+  const h = useHashLink();
   return (
     <section id="trust">
       <div className="trust-inner reveal">
@@ -23,7 +25,7 @@ export function TrustSection() {
             <Tx k="ts3l" as="div" className="trust-stat-label" id="ts3l" />
           </div>
         </div>
-        <a href="#contact" className="btn-primary trust-cta" id="trust-cta">
+        <a href={h("contact")} className="btn-primary trust-cta" id="trust-cta">
           <Tx k="trust-cta" />
         </a>
       </div>

@@ -153,6 +153,7 @@
   footer{background:#050505;padding:3rem 4rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
   .footer-logo{font-family:var(--font-bebas),sans-serif;font-size:1.5rem;letter-spacing:0.15em;color:var(--white);}
   .footer-logo span{color:var(--accent);}
+  a.footer-logo{text-decoration:none;color:inherit;}
   .footer-links{display:flex;gap:2rem;}
   .footer-links a{font-family:var(--font-barlow-cond),sans-serif;font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;transition:color 0.2s;}
   .footer-links a:hover{color:var(--white);}

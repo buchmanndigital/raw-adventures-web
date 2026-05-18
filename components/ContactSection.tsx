@@ -1,8 +1,10 @@
 "use client";
 
+import { useHashLink } from "@/components/BasePathContext";
 import { Tx } from "@/components/Tx";
 
 export function ContactSection() {
+  const h = useHashLink();
   return (
     <section id="contact">
       <Tx k="con-label" as="p" className="section-label" id="con-label" />
@@ -12,7 +14,7 @@ export function ContactSection() {
         <a href="mailto:info@raw-adventures.com" className="btn-dark" id="con-btn1">
           <Tx k="con-btn1" />
         </a>
-        <a href="#pricing" className="btn-white" id="con-btn2">
+        <a href={h("pricing")} className="btn-white" id="con-btn2">
           <Tx k="con-btn2" />
         </a>
       </div>

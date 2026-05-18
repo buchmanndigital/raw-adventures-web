@@ -1,8 +1,10 @@
 "use client";
 
+import { useHashLink } from "@/components/BasePathContext";
 import { Tx } from "@/components/Tx";
 
 export function Hero() {
+  const h = useHashLink();
   return (
     <section id="hero">
       <div className="hero-bg" />
@@ -29,10 +31,10 @@ export function Hero() {
       <Tx k="hero-title" as="h1" className="hero-title" />
       <Tx k="hero-sub" as="p" className="hero-sub" />
       <div className="hero-actions">
-        <a href="#pricing" className="btn-primary" id="hero-btn1">
+        <a href={h("pricing")} className="btn-primary" id="hero-btn1">
           <Tx k="hero-btn1" />
         </a>
-        <a href="#why" className="btn-ghost" id="hero-btn2">
+        <a href={h("why")} className="btn-ghost" id="hero-btn2">
           <Tx k="hero-btn2" />
         </a>
       </div>
