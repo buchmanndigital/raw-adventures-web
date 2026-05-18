@@ -1,6 +1,7 @@
 import { BasePathProvider } from "@/components/BasePathContext";
 import { Site } from "@/components/Site";
 import { TourJsonLd } from "@/components/TourJsonLd";
+import { BRAND_NAME, getTourUrl, TOUR_SEO } from "@/lib/seo";
 import { getSiteUrl } from "@/lib/site-url";
 import {
   isTourSlug,
@@ -20,18 +21,24 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug: raw } = await params;
   if (!isTourSlug(raw)) return {};
-  const canonical = new URL(tourPath(raw), getSiteUrl()).toString();
+  const canonical = getTourUrl(raw);
+  const seo = TOUR_SEO[raw];
   return {
-    title: "Catskiing & Catboarding — North Macedonia",
-    description:
-      "Shar Mountains · Popova Šapka: 6 riding days, small groups, packages from €1,990. Europe’s long-running cat operation.",
+    title: seo.title,
+    description: seo.description,
+    keywords: seo.keywords,
     alternates: { canonical },
     openGraph: {
-      title: "Catskiing & Catboarding — North Macedonia · RAW ADVENTURES",
-      description:
-        "4,000+ vertical meters per day, all-inclusive logistics, Balkan value.",
+      title: `${seo.shortTitle} | ${BRAND_NAME}`,
+      description: seo.socialDescription,
       url: canonical,
       type: "website",
+      locale: "en_US",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${seo.shortTitle} | ${BRAND_NAME}`,
+      description: seo.socialDescription,
     },
   };
 }
