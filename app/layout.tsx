@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Analytics } from "@vercel/analytics/next";
 import { LangProvider } from "@/lib/lang-context";
 import { BRAND_NAME, SITE_NAME, TOUR_SEO } from "@/lib/seo";
 import { getSiteUrl } from "@/lib/site-url";
@@ -158,6 +159,7 @@ export default function RootLayout({
         className={`${bebas.variable} ${barlow.variable} ${barlowCond.variable}`}
       >
         <LangProvider>{children}</LangProvider>
+        <Analytics />
       </body>
     </html>
   );
