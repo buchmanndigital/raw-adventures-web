@@ -166,7 +166,7 @@
   .booking-fields{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem;}
   .booking-fields label{display:flex;flex-direction:column;gap:0.55rem;}
   .booking-fields span{font-family:var(--font-barlow-cond),sans-serif;font-size:0.75rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--snow);}
-  .booking-fields input,.booking-fields textarea{width:100%;background:#111;border:1px solid #292929;color:var(--white);font-family:var(--font-barlow),sans-serif;font-size:0.95rem;padding:0.9rem 1rem;outline:none;}
+  .booking-fields input,.booking-fields textarea{width:100%;background:#111;border:1px solid #292929;color:var(--white);font-family:var(--font-barlow),sans-serif;font-size:max(16px,1rem);padding:0.9rem 1rem;outline:none;}
   .booking-fields input:focus,.booking-fields textarea:focus{border-color:var(--accent);}
   .booking-fields textarea{min-height:150px;resize:vertical;line-height:1.6;}
   .booking-wide{grid-column:1/-1;}
