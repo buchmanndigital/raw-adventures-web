@@ -70,7 +70,7 @@
   .terrain-card:hover{background:#111;}
   .terrain-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(--accent),transparent);opacity:0;transition:opacity 0.3s;}
   .terrain-card:hover::after{opacity:1;}
-  .terrain-icon{font-size:2.5rem;margin-bottom:1.5rem;display:block;}
+  .terrain-icon{width:3.75rem;height:3.75rem;margin-bottom:1.35rem;display:block;object-fit:contain;filter:drop-shadow(0 0 14px rgba(111,168,196,0.12));}
   .terrain-card h3{font-family:var(--font-bebas),sans-serif;font-size:1.6rem;letter-spacing:0.05em;color:var(--white);margin-bottom:0.8rem;}
   .terrain-card p{font-size:0.92rem;line-height:1.7;color:var(--text-muted);}
 
