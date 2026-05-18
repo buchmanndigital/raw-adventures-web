@@ -21,6 +21,13 @@ const LangContext = createContext<Ctx | null>(null);
 export function LangProvider({ children }: { children: React.ReactNode }) {
   const [lang, setLang] = useState<Lang>("en");
   useEffect(() => {
+    const stored = window.localStorage.getItem("raw-adventures-lang");
+    if (stored === "en" || stored === "de" || stored === "es" || stored === "nl") {
+      setLang(stored);
+    }
+  }, []);
+  useEffect(() => {
+    window.localStorage.setItem("raw-adventures-lang", lang);
     document.documentElement.lang = lang;
   }, [lang]);
   const t = useCallback(

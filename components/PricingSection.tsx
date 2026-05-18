@@ -1,12 +1,12 @@
 "use client";
 
-import { useHashLink } from "@/components/BasePathContext";
+import { useBookingLink } from "@/components/BasePathContext";
 import { Tx } from "@/components/Tx";
 import { useLang } from "@/lib/lang-context";
 
 export function PricingSection() {
   const { t } = useLang();
-  const h = useHashLink();
+  const bookingLink = useBookingLink();
   return (
     <section id="pricing">
       <Tx k="pricing-label" as="p" className="section-label reveal" />
@@ -41,7 +41,7 @@ export function PricingSection() {
             <Tx k="not-incl" as="p" id="not-incl" />
           </div>
           <a
-            href={h("contact")}
+            href={bookingLink}
             className="btn-primary"
             style={{ marginTop: "2rem", display: "inline-block" }}
             id="price-cta"

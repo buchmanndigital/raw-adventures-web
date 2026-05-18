@@ -1,10 +1,11 @@
 "use client";
 
-import { useHashLink } from "@/components/BasePathContext";
+import { useBookingLink, useHashLink } from "@/components/BasePathContext";
 import { Tx } from "@/components/Tx";
 
 export function Nav() {
   const h = useHashLink();
+  const bookingLink = useBookingLink();
   return (
     <nav>
       <a href="/" className="nav-logo">
@@ -40,7 +41,7 @@ export function Nav() {
           </a>
         </li>
       </ul>
-      <a href={h("contact")} className="nav-cta" id="nav-book">
+      <a href={bookingLink} className="nav-cta" id="nav-book">
         <Tx k="nav-book" />
       </a>
     </nav>

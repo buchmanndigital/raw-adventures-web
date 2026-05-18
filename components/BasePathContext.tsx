@@ -4,7 +4,7 @@ import { createContext, useContext, useMemo } from "react";
 
 /**
  * Prefix for in-page anchors (e.g. /tours/shar-mountains-catskiing).
- * Use "" on the tour page when same route — but we always set the full tour path for consistent URLs in the nav.
+ * Use "" on the tour page when same route; we always set the full tour path for consistent URLs in the nav.
  */
 const BasePathContext = createContext("");
 
@@ -32,4 +32,10 @@ export function useHashLink(): (id: string) => string {
     () => (id: string) => `${base}#${id}`,
     [base],
   );
+}
+
+/** Booking page for the current tour, e.g. `/tours/slug/book` */
+export function useBookingLink(): string {
+  const base = useBasePath();
+  return useMemo(() => `${base}/book`, [base]);
 }

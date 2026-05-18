@@ -149,6 +149,34 @@
   .contact-info{margin-top:3rem;font-family:var(--font-barlow-cond),sans-serif;font-size:1.1rem;letter-spacing:0.1em;color:rgba(0,0,0,0.6);}
   .contact-info a{color:var(--black);text-decoration:none;font-weight:600;}
 
+  /* BOOKING */
+  .booking-page{background:var(--black);min-height:100svh;padding-top:5.5rem;}
+  .booking-hero{padding:6rem 4rem 4rem;background:linear-gradient(165deg,#0a0a0a 0%,#111 55%,#17120f 100%);}
+  .booking-back{font-family:var(--font-barlow-cond),sans-serif;font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;display:inline-block;margin-bottom:2.5rem;}
+  .booking-back:hover{color:var(--accent);}
+  .booking-hero h1{font-family:var(--font-bebas),sans-serif;font-size:clamp(4rem,9vw,8rem);line-height:0.9;letter-spacing:0.02em;max-width:920px;}
+  .booking-intro{font-size:1.08rem;line-height:1.7;color:var(--snow);max-width:720px;margin-top:2rem;}
+  .booking-layout{display:grid;grid-template-columns:minmax(260px,0.8fr) minmax(0,1.6fr);gap:2px;background:#222;padding:0;margin:0 4rem 4rem;}
+  .booking-summary,.booking-form{background:var(--black);padding:3rem;}
+  .booking-summary h2,.booking-form h2,.booking-questions h2{font-family:var(--font-bebas),sans-serif;font-size:2.2rem;letter-spacing:0.04em;margin-bottom:1rem;}
+  .booking-summary ul{list-style:none;margin:1.5rem 0 2rem;}
+  .booking-summary li{color:var(--snow);line-height:1.55;padding:0.75rem 0;border-bottom:1px solid #222;}
+  .booking-summary li::before{content:'✓';color:var(--accent);font-weight:700;margin-right:0.7rem;}
+  .booking-summary p,.booking-form p{font-size:0.92rem;line-height:1.7;color:var(--text-muted);}
+  .booking-fields{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem;}
+  .booking-fields label{display:flex;flex-direction:column;gap:0.55rem;}
+  .booking-fields span{font-family:var(--font-barlow-cond),sans-serif;font-size:0.75rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--snow);}
+  .booking-fields input,.booking-fields textarea{width:100%;background:#111;border:1px solid #292929;color:var(--white);font-family:var(--font-barlow),sans-serif;font-size:0.95rem;padding:0.9rem 1rem;outline:none;}
+  .booking-fields input:focus,.booking-fields textarea:focus{border-color:var(--accent);}
+  .booking-fields textarea{min-height:150px;resize:vertical;line-height:1.6;}
+  .booking-wide{grid-column:1/-1;}
+  .booking-submit{border:0;margin-top:2rem;cursor:pointer;}
+  .booking-questions{padding:3rem 4rem 7rem;}
+  .booking-question-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:#222;margin-top:2rem;}
+  .booking-question-grid article{background:var(--black);padding:2rem;min-height:220px;}
+  .booking-question-grid h3{font-family:var(--font-bebas),sans-serif;font-size:1.45rem;letter-spacing:0.04em;color:var(--white);margin-bottom:0.8rem;}
+  .booking-question-grid p{font-size:0.9rem;line-height:1.65;color:var(--text-muted);}
+
   /* FOOTER */
   footer{background:#050505;padding:3rem 4rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
   .footer-logo{font-family:var(--font-bebas),sans-serif;font-size:1.5rem;letter-spacing:0.15em;color:var(--white);}
@@ -231,6 +259,11 @@
     .price-hero{padding:2.5rem 1.5rem;}
     .price-main{font-size:4rem;}
     .contact-actions{flex-direction:column;align-items:center;}
+    .booking-hero{padding:5rem 1.5rem 3rem;}
+    .booking-layout{grid-template-columns:1fr;margin:0 1.5rem 3rem;}
+    .booking-summary,.booking-form{padding:2rem;}
+    .booking-question-grid{grid-template-columns:1fr 1fr;}
+    .booking-questions{padding:2rem 1.5rem 4.5rem;}
   }
 
   /* ── MOBILE (max 600px) ── */
@@ -303,6 +336,14 @@
     #contact{padding:3.5rem 1rem;}
     .contact-actions{flex-direction:column;align-items:stretch;}
     .btn-dark,.btn-white{text-align:center;display:block;width:100%;}
+    .booking-page{padding-top:4.5rem;}
+    .booking-hero{padding:4rem 1rem 2.5rem;}
+    .booking-layout{margin:0 1rem 2.5rem;}
+    .booking-summary,.booking-form{padding:1.5rem;}
+    .booking-fields{grid-template-columns:1fr;}
+    .booking-question-grid{grid-template-columns:1fr;}
+    .booking-questions{padding:2rem 1rem 3.5rem;}
+    .booking-question-grid article{min-height:auto;}
 
     /* Footer */
     footer{padding:2rem 1rem;}

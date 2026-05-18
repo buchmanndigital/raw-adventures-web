@@ -2,7 +2,6 @@ import { BasePathProvider } from "@/components/BasePathContext";
 import { Site } from "@/components/Site";
 import { TourJsonLd } from "@/components/TourJsonLd";
 import { BRAND_NAME, getTourUrl, TOUR_SEO } from "@/lib/seo";
-import { getSiteUrl } from "@/lib/site-url";
 import {
   isTourSlug,
   tourPath,
