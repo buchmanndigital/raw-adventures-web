@@ -32,7 +32,7 @@ export function ContactSection() {
         `Travel date: ${date}\n\n` +
         `Message:\n${message}`,
     );
-    window.location.href = `mailto:booking@raw-adventures.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:booking@raw-mountain.com?subject=${subject}&body=${body}`;
     setStatus("success");
   }
 
@@ -108,7 +108,7 @@ export function ContactSection() {
       <div className="contact-info" style={{ marginTop: "2rem" }}>
         <p>
           <Tx k="con-or" as="span" id="con-or" />{" "}
-          <a href="mailto:booking@raw-adventures.com">booking@raw-adventures.com</a>
+          <a href="mailto:booking@raw-mountain.com">booking@raw-mountain.com</a>
         </p>
       </div>
     </section>

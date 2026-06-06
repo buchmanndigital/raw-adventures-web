@@ -55,7 +55,7 @@ const COPY: Record<Lang, BookingCopy> = {
       "6 guided riding days in the Shar Mountains",
       "7 nights, hotel meals, Skopje transfers and snowcat access",
       "Small groups with terrain matched to ability and stability",
-      "Packages from €1,990 per person depending on season",
+      "Packages from €1.990 per person depending on season",
     ],
     formTitle: "Your request",
     required: "Static form for now. Submitting opens your email client with the request details.",
@@ -363,7 +363,7 @@ export function BookingPage() {
 
           <form
             className="booking-form"
-            action={`mailto:info@raw-adventures.com?subject=${mailSubject}`}
+            action={`mailto:info@raw-mountain.com?subject=${mailSubject}`}
             method="post"
             encType="text/plain"
           >
