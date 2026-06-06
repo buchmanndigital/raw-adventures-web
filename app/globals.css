@@ -26,6 +26,7 @@
   .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;pointer-events:none;}
   .hero-overlay{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(to top,rgba(8,8,8,0.55) 0%,rgba(8,8,8,0.05) 35%,transparent 60%),radial-gradient(ellipse at 50% 30%,rgba(111,168,196,0.12) 0%,transparent 60%);}
   .hero-grain{position:absolute;inset:0;z-index:1;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");opacity:0.04;pointer-events:none;}
+  .hero-mountain{position:absolute;bottom:0;left:0;right:0;height:clamp(180px,30vh,320px);pointer-events:none;opacity:0.16;z-index:0;}
   .hero-content{grid-column:1;grid-row:1;position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;min-width:0;}
   .hero-tag{font-family:var(--font-barlow-cond),sans-serif;font-size:0.72rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--accent);margin-bottom:1.2rem;animation:fadeUp 1s ease 0.2s both;position:relative;z-index:1;}
   .hero-title{font-family:var(--font-bebas),sans-serif;font-size:clamp(4rem,7.5vw,8rem);line-height:0.9;letter-spacing:0.02em;animation:fadeUp 1s ease 0.4s both;position:relative;z-index:1;}
@@ -243,6 +244,7 @@
     section{padding:4.5rem 1.5rem;}
     #hero{display:flex;flex-direction:column;justify-content:flex-end;height:100vh;min-height:700px;padding:0 1.5rem 4rem;padding-top:90px;gap:0;}
     .hero-media{position:absolute;inset:0;height:100%;max-height:none;align-self:auto;border-radius:0;box-shadow:none;z-index:0;}
+    .hero-mountain{display:none;}
     .hero-overlay{background:linear-gradient(to top,rgba(8,8,8,0.96) 0%,rgba(8,8,8,0.78) 40%,rgba(8,8,8,0.7) 72%,rgba(8,8,8,0.78) 100%);}
     .hero-content{justify-content:flex-end;}
     .hero-tag{text-shadow:0 2px 18px rgba(0,0,0,0.7);}
