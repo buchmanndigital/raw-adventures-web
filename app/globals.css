@@ -64,7 +64,7 @@
   .stat-desc{font-size:0.82rem;color:#666;line-height:1.55;margin-top:0.8rem;font-family:var(--font-barlow),sans-serif;font-weight:300;}
 
   /* TERRAIN */
-  #terrain{background:var(--black);}
+  #terrain{background:var(--mid);}
   .terrain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#222;margin-top:4rem;}
   .terrain-card{background:var(--black);padding:3rem 2.5rem;transition:background 0.3s;position:relative;overflow:hidden;}
   .terrain-card:hover{background:#111;}
@@ -75,7 +75,7 @@
   .terrain-card p{font-size:0.92rem;line-height:1.7;color:var(--text-muted);}
 
   /* PRICING */
-  #pricing{background:var(--mid);}
+  #pricing{background:var(--black);}
   .pricing-wrapper{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:4rem;align-items:start;}
   .price-hero{background:var(--black);padding:3.5rem;position:relative;overflow:hidden;}
   .price-hero::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--ice));}
