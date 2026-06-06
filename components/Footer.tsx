@@ -7,6 +7,7 @@ import { useLang } from "@/lib/lang-context";
 const LEGAL_LABELS = {
   imprint: { en: "Imprint", de: "Impressum", es: "Aviso legal", nl: "Colofon" },
   terms: { en: "Terms", de: "AGB", es: "Términos", nl: "Voorwaarden" },
+  privacy: { en: "Privacy", de: "Datenschutz", es: "Privacidad", nl: "Privacy" },
 } as const;
 
 export function Footer() {
@@ -42,6 +43,9 @@ export function Footer() {
         </a>
         <a href="/agb" id="footer-terms">
           {LEGAL_LABELS.terms[lang]}
+        </a>
+        <a href="/datenschutz" id="footer-privacy">
+          {LEGAL_LABELS.privacy[lang]}
         </a>
       </div>
       <div className="footer-copy">

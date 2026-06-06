@@ -20,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
   ]);
-  const legal = ["/impressum", "/agb"].map((path) => ({
+  const legal = ["/impressum", "/agb", "/datenschutz"].map((path) => ({
     url: `${base}${path}`,
     lastModified: new Date(),
     changeFrequency: "yearly" as const,
