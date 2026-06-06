@@ -20,7 +20,7 @@ export function GET() {
 - Best for: experienced freeride skiers and snowboarders, powder riders, small private groups, solo travellers joining a guided group
 - Season: late December to mid-April
 
-## What RAW.ADVENTURES Offers
+## What RAW.MOUNTAIN Offers
 
 ${tour.aiSummary}
 

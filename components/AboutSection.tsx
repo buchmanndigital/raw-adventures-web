@@ -13,7 +13,7 @@ export function AboutSection() {
             <span className="about-avatar-icon">🏔️</span>
             <span className="about-avatar-name">Ferdi Christ</span>
             <span className="about-avatar-hint">
-              Add your photo here &mdash; replace this placeholder
+              Add your photo here. Replace this placeholder
             </span>
           </div>
           <div className="about-tag-row">

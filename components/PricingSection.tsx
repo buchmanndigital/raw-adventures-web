@@ -71,7 +71,7 @@ export function PricingSection() {
               <div className="compare-row ours-row">
                 <div>
                   <div className="compare-who">
-                    RAW.ADVENTURES{" "}
+                    RAW.MOUNTAIN{" "}
                     <Tx k="cmp-best" as="span" className="best-value-tag" id="cmp-best" />
                   </div>
                   <Tx

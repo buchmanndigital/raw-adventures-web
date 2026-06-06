@@ -1,4 +1,4 @@
-/** Slugs match URL segments under /tours — stable for SEO, expand when adding trips. */
+/** Slugs match URL segments under /tours; stable for SEO, expand when adding trips. */
 export const TOUR_SLUGS = ["shar-mountains-catskiing"] as const;
 
 export type TourSlug = (typeof TOUR_SLUGS)[number];

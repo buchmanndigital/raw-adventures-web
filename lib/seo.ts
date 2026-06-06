@@ -1,8 +1,8 @@
 import { getSiteUrl } from "@/lib/site-url";
 import { tourPath, type TourSlug } from "@/lib/tours";
 
-export const SITE_NAME = "RAW.ADVENTURES";
-export const BRAND_NAME = "RAW ADVENTURES";
+export const SITE_NAME = "RAW.MOUNTAIN";
+export const BRAND_NAME = "RAW MOUNTAIN";
 export const CONTACT_EMAIL = "info@raw-adventures.com";
 export const DEFAULT_LOCALE = "en";
 
@@ -35,7 +35,7 @@ export const TOUR_SEO: Record<
     socialDescription:
       "Ride untracked powder in the Shar Mountains above Popova Sapka: 6 guided catskiing and catboarding days, small groups, snowcat access and Balkan value from €1,990.",
     aiSummary:
-      "RAW.ADVENTURES offers guided catskiing and catboarding trips in the Shar Mountains above Popova Sapka, North Macedonia. The flagship package includes 6 riding days, 7 nights, snowcat access, airport transfers from Skopje, hotel meals, small groups, local guide expertise and packages from €1,990 per person.",
+      "RAW.MOUNTAIN offers guided catskiing and catboarding trips in the Shar Mountains above Popova Sapka, North Macedonia. The flagship package includes 6 riding days, 7 nights, snowcat access, airport transfers from Skopje, hotel meals, small groups, local guide expertise and packages from €1,990 per person.",
     location: "Popova Sapka, Shar Mountains, North Macedonia",
     destinationCountry: "North Macedonia",
     destinationRegion: "Shar Mountains",

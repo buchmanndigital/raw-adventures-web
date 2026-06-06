@@ -5,7 +5,7 @@ import { isTourSlug } from "@/lib/tours";
 
 export const runtime = "edge";
 export const alt =
-  "RAW ADVENTURES catskiing and catboarding in the Shar Mountains, North Macedonia";
+  "RAW MOUNTAIN catskiing and catboarding in the Shar Mountains, North Macedonia";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

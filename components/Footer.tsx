@@ -8,7 +8,7 @@ export function Footer() {
   return (
     <footer>
       <a href="/" className="footer-logo">
-        RAW<span>.</span>ADVENTURES
+        RAW<span>.</span>MOUNTAIN
       </a>
       <div className="footer-links">
         <a href={h("why")} id="footer-why">
@@ -32,7 +32,7 @@ export function Footer() {
         </a>
       </div>
       <div className="footer-copy">
-        &copy; 2026 RAW.ADVENTURES &middot; Shar Mountains, North Macedonia
+        &copy; 2026 RAW.MOUNTAIN &middot; Shar Mountains, North Macedonia
       </div>
     </footer>
   );

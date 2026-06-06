@@ -22,7 +22,7 @@ const FAQ_ITEMS = [
   {
     question: "How do I get to Skopje?",
     answer:
-      "The easiest connections run via Zurich, Frankfurt or Istanbul. From many European cities, WizzAir flies direct to Skopje. Once you land, RAW.ADVENTURES handles the transfer and local logistics.",
+      "The easiest connections run via Zurich, Frankfurt or Istanbul. From many European cities, WizzAir flies direct to Skopje. Once you land, RAW.MOUNTAIN handles the transfer and local logistics.",
   },
   {
     question: "Do I need to bring avalanche gear?",
