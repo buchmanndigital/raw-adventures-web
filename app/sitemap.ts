@@ -6,7 +6,7 @@ import { TOUR_SLUGS, tourPath } from "@/lib/tours";
 /** Nur 200-URLs: `/` leitet permanent auf die Tour um; keine Dopplung in der Sitemap. */
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = getSiteUrl().toString().replace(/\/$/, "");
-  return TOUR_SLUGS.flatMap((slug) => [
+  const tours = TOUR_SLUGS.flatMap((slug) => [
     {
       url: `${base}${tourPath(slug)}`,
       lastModified: new Date(TOUR_SEO[slug].lastModified),
@@ -20,4 +20,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
   ]);
+  const legal = ["/impressum", "/agb"].map((path) => ({
+    url: `${base}${path}`,
+    lastModified: new Date(),
+    changeFrequency: "yearly" as const,
+    priority: 0.3,
+  }));
+  return [...tours, ...legal];
 }

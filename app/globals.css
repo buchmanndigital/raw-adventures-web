@@ -181,6 +181,47 @@
   .booking-question-grid h3{font-family:var(--font-bebas),sans-serif;font-size:1.45rem;letter-spacing:0.04em;color:var(--white);margin-bottom:0.8rem;}
   .booking-question-grid p{font-size:0.9rem;line-height:1.65;color:var(--text-muted);}
 
+  /* LEGAL (Impressum / AGB) */
+  .legal-page{background:var(--black);color:var(--white);min-height:100svh;padding-top:2.4rem;}
+  .legal-page.legal-page--nobar{padding-top:0;}
+  .legal-nav{position:static;top:auto;z-index:auto;background:none;backdrop-filter:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.5rem 4rem;border-bottom:1px solid #1a1a1a;}
+  .legal-logo{font-family:var(--font-bebas),sans-serif;font-size:1.8rem;letter-spacing:0.15em;color:var(--white);text-decoration:none;}
+  .legal-logo span{color:var(--accent);}
+  .legal-back{font-family:var(--font-barlow-cond),sans-serif;font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;transition:color 0.2s;white-space:nowrap;}
+  .legal-back:hover{color:var(--accent);}
+  .legal-page .container{max-width:860px;margin:0 auto;padding:5rem 2rem 6rem;}
+  .legal-page .page-label{font-family:var(--font-barlow-cond),sans-serif;font-size:0.7rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;}
+  .legal-page h1{font-family:var(--font-bebas),sans-serif;font-size:clamp(3rem,7vw,5rem);line-height:0.95;letter-spacing:0.02em;margin-bottom:0.5rem;}
+  .legal-page .subtitle{font-family:var(--font-barlow-cond),sans-serif;font-size:0.8rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);margin-bottom:4rem;}
+  .legal-page .warning-box{background:rgba(212,85,10,0.1);border:1px solid rgba(212,85,10,0.4);border-left:4px solid var(--accent);padding:1.5rem 2rem;margin-bottom:4rem;}
+  .legal-page .warning-box p{font-size:0.95rem;color:var(--snow);line-height:1.7;margin:0;}
+  .legal-page .warning-box strong{color:var(--accent);}
+  .legal-page section{margin-bottom:3.5rem;}
+  .legal-page h2{font-family:var(--font-bebas),sans-serif;font-size:1.6rem;letter-spacing:0.05em;color:var(--white);margin-bottom:1.2rem;padding-bottom:0.6rem;border-bottom:1px solid #1a1a1a;}
+  .legal-page h3{font-family:var(--font-barlow-cond),sans-serif;font-size:1rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--ice);margin:1.5rem 0 0.6rem;}
+  .legal-page p{font-size:0.95rem;color:var(--snow);margin-bottom:1rem;}
+  .legal-page ul{list-style:none;padding:0;margin-bottom:1rem;}
+  .legal-page ul li{font-size:0.95rem;color:var(--snow);padding:0.4rem 0;padding-left:1.2rem;position:relative;}
+  .legal-page ul li::before{content:'—';position:absolute;left:0;color:var(--accent);}
+  .legal-page .highlight{background:rgba(111,168,196,0.07);border-left:3px solid var(--ice);padding:1rem 1.5rem;margin:1.5rem 0;}
+  .legal-page .highlight p{margin:0;font-size:0.9rem;color:var(--snow);}
+  .legal-page .info-block{background:#111;border:1px solid #1a1a1a;padding:2rem 2.5rem;margin-bottom:2rem;}
+  .legal-page .info-block p{margin-bottom:0.4rem;}
+  .legal-page .info-block .label{font-family:var(--font-barlow-cond),sans-serif;font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.8rem;}
+  .legal-page .notice{background:rgba(212,85,10,0.08);border-left:3px solid var(--accent);padding:1rem 1.5rem;margin:1.5rem 0;}
+  .legal-page .notice p{font-size:0.88rem;color:var(--snow);margin:0;}
+  .legal-page .placeholder{color:var(--accent);font-style:italic;}
+  .legal-page a{color:var(--accent);text-decoration:none;word-break:break-word;}
+  .legal-page a:hover{text-decoration:underline;}
+  .legal-footer{max-width:860px;margin:0 auto;padding:2rem;border-top:1px solid #1a1a1a;font-family:var(--font-barlow-cond),sans-serif;font-size:0.72rem;letter-spacing:0.1em;color:var(--text-muted);text-align:center;}
+  .legal-footer a{color:var(--text-muted);text-decoration:none;}
+  .legal-footer a:hover{color:var(--accent);}
+  @media(max-width:600px){
+    .legal-nav{padding:1.2rem 1.5rem;}
+    .legal-logo{font-size:1.5rem;}
+    .legal-page .container{padding:3rem 1.2rem 5rem;}
+  }
+
   /* FOOTER */
   footer{background:#050505;padding:3rem 4rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
   .footer-logo{font-family:var(--font-bebas),sans-serif;font-size:1.5rem;letter-spacing:0.15em;color:var(--white);}
