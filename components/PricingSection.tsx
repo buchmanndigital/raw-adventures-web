@@ -15,7 +15,7 @@ export function PricingSection() {
         <div className="price-hero reveal">
           <Tx k="price-badge" as="span" className="price-badge" id="price-badge" />
           <div className="price-main">
-            <sup>&euro;</sup>1990
+            <sup>&euro;</sup>1.990
           </div>
           <div
             style={{
@@ -64,7 +64,7 @@ export function PricingSection() {
                   />
                 </div>
                 <div style={{ textAlign: "right" }}>
-                  <span className="compare-price theirs">&euro;2,700&ndash;3,300</span>
+                  <span className="compare-price theirs">&euro;2.700&ndash;3.300</span>
                   <Tx k="cmp-5days" as="span" className="compare-days" id="cmp-5days" />
                 </div>
               </div>
@@ -82,7 +82,7 @@ export function PricingSection() {
                   />
                 </div>
                 <div style={{ textAlign: "right" }}>
-                  <span className="compare-price ours">&euro;1,990</span>
+                  <span className="compare-price ours">&euro;1.990</span>
                   <Tx k="cmp-6days" as="span" className="compare-days" id="cmp-6days" />
                 </div>
               </div>
