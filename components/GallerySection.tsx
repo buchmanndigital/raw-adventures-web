@@ -19,8 +19,10 @@ const PLACEHOLDER_ICON = (
 
 type Item = {
   className?: string;
-  text: string;
-  size: string;
+  src?: string;
+  alt?: string;
+  text?: string;
+  size?: string;
 };
 
 export function GallerySection({
@@ -56,11 +58,21 @@ export function GallerySection({
             key={i}
             className={`gallery-item${item.className ? ` ${item.className}` : ""}`}
           >
-            <div className="gallery-placeholder">
-              {PLACEHOLDER_ICON}
-              <span className="gallery-placeholder-text">{item.text}</span>
-              <span className="gallery-placeholder-size">{item.size}</span>
-            </div>
+            {item.src ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={item.src}
+                alt={item.alt ?? ""}
+                loading="lazy"
+                decoding="async"
+              />
+            ) : (
+              <div className="gallery-placeholder">
+                {PLACEHOLDER_ICON}
+                <span className="gallery-placeholder-text">{item.text}</span>
+                <span className="gallery-placeholder-size">{item.size}</span>
+              </div>
+            )}
           </div>
         ))}
       </div>

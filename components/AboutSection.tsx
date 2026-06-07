@@ -9,12 +9,15 @@ export function AboutSection() {
       <Tx k="about-title" as="h2" className="section-title reveal" id="about-title" />
       <div className="about-grid">
         <div className="about-avatar reveal">
-          <div className="about-avatar-placeholder">
-            <span className="about-avatar-icon">🏔️</span>
+          <div className="about-avatar-photo">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/about/ferdi.webp"
+              alt="Ferdi Christ — founder & guide, RAW.MOUNTAIN"
+              loading="lazy"
+              decoding="async"
+            />
             <span className="about-avatar-name">Ferdi Christ</span>
-            <span className="about-avatar-hint">
-              Add your photo here. Replace this placeholder
-            </span>
           </div>
           <div className="about-tag-row">
             <p

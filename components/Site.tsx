@@ -20,21 +20,51 @@ import { ContactSection } from "@/components/ContactSection";
 import { PartnersSection } from "@/components/PartnersSection";
 import { Footer } from "@/components/Footer";
 
+const RIDE_ALT = "Catboarding & freeriding in the Šar Mountains, North Macedonia";
+const CAMP_ALT = "RAW.MOUNTAIN basecamp — lodge, après & mountain life";
+
+// RAW FOOTAGE — riding & action. Portraits placed in "tall" slots, interleaved
+// with landscapes for a staggered editorial grid.
 const GALLERY_1 = [
-  { className: "tall", text: "Photo 1", size: "Portrait · Best: action shot riding" },
-  { text: "Photo 2", size: "Landscape · Snowcat / terrain" },
-  { text: "Photo 3", size: "Landscape · Powder / mountain view" },
-  { className: "wide", text: "Photo 4", size: "Wide · Group / hotel / dinner scene" },
-  { text: "Photo 5", size: "Landscape · SPA / après" },
-  { text: "Photo 6", size: "Landscape · Skopje / transfer" },
+  { className: "tall", src: "/gallery/footage/footage-02.webp", alt: RIDE_ALT },
+  { src: "/gallery/footage/footage-03.webp", alt: RIDE_ALT },
+  { src: "/gallery/footage/footage-04.webp", alt: RIDE_ALT },
+  { className: "tall", src: "/gallery/footage/footage-12.webp", alt: RIDE_ALT },
+  { src: "/gallery/footage/footage-05.webp", alt: RIDE_ALT },
+  { src: "/gallery/footage/footage-06.webp", alt: RIDE_ALT },
+  { className: "tall", src: "/gallery/footage/footage-13.webp", alt: RIDE_ALT },
+  { src: "/gallery/footage/footage-07.webp", alt: RIDE_ALT },
+  { src: "/gallery/footage/footage-08.webp", alt: RIDE_ALT },
+  { className: "tall", src: "/gallery/footage/footage-14.webp", alt: RIDE_ALT },
+  { src: "/gallery/footage/footage-09.webp", alt: RIDE_ALT },
+  { src: "/gallery/footage/footage-10.webp", alt: RIDE_ALT },
+  { className: "tall", src: "/gallery/footage/footage-16.webp", alt: RIDE_ALT },
+  { src: "/gallery/footage/footage-11.webp", alt: RIDE_ALT },
+  { src: "/gallery/footage/footage-01.webp", alt: RIDE_ALT },
+  { className: "tall", src: "/gallery/footage/footage-17.webp", alt: RIDE_ALT },
+  { src: "/gallery/footage/footage-15.webp", alt: RIDE_ALT },
+  { src: "/gallery/footage/footage-18.webp", alt: RIDE_ALT },
+  { className: "tall", src: "/gallery/footage/footage-19.webp", alt: RIDE_ALT },
+  { src: "/gallery/footage/footage-20.webp", alt: RIDE_ALT },
+  { src: "/gallery/footage/footage-21.webp", alt: RIDE_ALT },
 ];
 
+// RAW BASECAMP — lodge, après & camp life.
 const GALLERY_2 = [
-  { text: "Photo 7", size: "Landscape · Dinner / food scene" },
-  { text: "Photo 8", size: "Landscape · SPA / relaxing" },
-  { className: "tall", text: "Photo 9", size: "Portrait · Mountain / landscape" },
-  { className: "wide", text: "Photo 10", size: "Wide · Snowcat in action / group riding" },
-  { text: "Photo 11", size: "Landscape · Hotel exterior / view" },
+  { className: "tall", src: "/gallery/basecamp/basecamp-01.webp", alt: CAMP_ALT },
+  { src: "/gallery/basecamp/basecamp-03.webp", alt: CAMP_ALT },
+  { src: "/gallery/basecamp/basecamp-04.webp", alt: CAMP_ALT },
+  { className: "tall", src: "/gallery/basecamp/basecamp-02.webp", alt: CAMP_ALT },
+  { src: "/gallery/basecamp/basecamp-07.webp", alt: CAMP_ALT },
+  { src: "/gallery/basecamp/basecamp-08.webp", alt: CAMP_ALT },
+  { className: "tall", src: "/gallery/basecamp/basecamp-05.webp", alt: CAMP_ALT },
+  { src: "/gallery/basecamp/basecamp-09.webp", alt: CAMP_ALT },
+  { src: "/gallery/basecamp/basecamp-12.webp", alt: CAMP_ALT },
+  { className: "tall", src: "/gallery/basecamp/basecamp-06.webp", alt: CAMP_ALT },
+  { src: "/gallery/basecamp/basecamp-13.webp", alt: CAMP_ALT },
+  { className: "tall", src: "/gallery/basecamp/basecamp-10.webp", alt: CAMP_ALT },
+  { src: "/gallery/basecamp/basecamp-14.webp", alt: CAMP_ALT },
+  { className: "tall", src: "/gallery/basecamp/basecamp-11.webp", alt: CAMP_ALT },
 ];
 
 export function Site() {
