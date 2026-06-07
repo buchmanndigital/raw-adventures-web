@@ -1,9 +1,39 @@
 "use client";
 
+import { useState } from "react";
 import { LangBar } from "@/components/LangBar";
 import { useBasePath } from "@/components/BasePathContext";
 import { useLang } from "@/lib/lang-context";
 import type { Lang } from "@/lib/translations";
+
+const STATUS_COPY: Record<
+  Lang,
+  { sending: string; success: string; error: string }
+> = {
+  en: {
+    sending: "Sending your request…",
+    success: "Thanks! Your request was sent. We'll get back to you shortly.",
+    error: "Something went wrong. Please email booking@raw-mountain.com directly.",
+  },
+  de: {
+    sending: "Anfrage wird gesendet…",
+    success: "Danke! Deine Anfrage wurde gesendet. Wir melden uns in Kürze.",
+    error:
+      "Etwas ist schiefgelaufen. Bitte schreib direkt an booking@raw-mountain.com.",
+  },
+  es: {
+    sending: "Enviando tu solicitud…",
+    success: "¡Gracias! Tu solicitud fue enviada. Te responderemos pronto.",
+    error:
+      "Algo salió mal. Escríbenos directamente a booking@raw-mountain.com.",
+  },
+  nl: {
+    sending: "Aanvraag wordt verzonden…",
+    success: "Bedankt! Je aanvraag is verzonden. We nemen snel contact op.",
+    error:
+      "Er ging iets mis. Mail ons rechtstreeks op booking@raw-mountain.com.",
+  },
+};
 
 type BookingCopy = {
   eyebrow: string;
@@ -58,7 +88,7 @@ const COPY: Record<Lang, BookingCopy> = {
       "Packages from €1.990 per person depending on season",
     ],
     formTitle: "Your request",
-    required: "Static form for now. Submitting opens your email client with the request details.",
+    required: "Fill in what you can — we'll reply personally to confirm the details.",
     fields: {
       name: "Full name",
       email: "Email",
@@ -125,7 +155,7 @@ const COPY: Record<Lang, BookingCopy> = {
       "Pakete ab €1.990 pro Person, je nach Saison",
     ],
     formTitle: "Deine Anfrage",
-    required: "Aktuell statisch. Beim Absenden öffnet sich dein Mailprogramm mit den Angaben.",
+    required: "Fülle aus, was du kannst – wir melden uns persönlich zur Bestätigung.",
     fields: {
       name: "Vollständiger Name",
       email: "E-Mail",
@@ -192,7 +222,7 @@ const COPY: Record<Lang, BookingCopy> = {
       "Paquetes desde €1.990 por persona según temporada",
     ],
     formTitle: "Tu solicitud",
-    required: "Formulario estático por ahora. Al enviar se abre tu email con los datos.",
+    required: "Rellena lo que puedas — te responderemos personalmente para confirmar.",
     fields: {
       name: "Nombre completo",
       email: "Email",
@@ -259,7 +289,7 @@ const COPY: Record<Lang, BookingCopy> = {
       "Pakketten vanaf €1.990 per persoon afhankelijk van seizoen",
     ],
     formTitle: "Je aanvraag",
-    required: "Voor nu statisch. Verzenden opent je mailprogramma met de gegevens.",
+    required: "Vul in wat je kunt — we reageren persoonlijk om te bevestigen.",
     fields: {
       name: "Volledige naam",
       email: "Email",
@@ -335,7 +365,51 @@ export function BookingPage() {
   const { lang } = useLang();
   const basePath = useBasePath();
   const copy = COPY[lang];
-  const mailSubject = encodeURIComponent(`${copy.eyebrow}: ${copy.title}`);
+  const statusCopy = STATUS_COPY[lang];
+  const [status, setStatus] = useState<
+    "idle" | "sending" | "success" | "error"
+  >("idle");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    if ((data.get("company") as string)?.trim()) return; // honeypot
+
+    const fields = fieldOrder
+      .map((field) => ({
+        label: copy.fields[field],
+        value: ((data.get(copy.fields[field]) as string) ?? "").trim(),
+      }))
+      .filter((f) => f.value);
+    const message = ((data.get(copy.fields.message) as string) ?? "").trim();
+    const replyTo = (data.get(copy.fields.email) as string)?.trim();
+
+    if (fields.length === 0 && !message) {
+      setStatus("error");
+      return;
+    }
+
+    setStatus("sending");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          subject: `${copy.eyebrow}: ${copy.title}`,
+          replyTo,
+          fields,
+          message,
+        }),
+      });
+      if (!res.ok) throw new Error("send_failed");
+      setStatus("success");
+      form.reset();
+    } catch {
+      setStatus("error");
+    }
+  }
 
   return (
     <>
@@ -361,12 +435,7 @@ export function BookingPage() {
             <p>{copy.mailHint}</p>
           </aside>
 
-          <form
-            className="booking-form"
-            action={`mailto:info@raw-mountain.com?subject=${mailSubject}`}
-            method="post"
-            encType="text/plain"
-          >
+          <form className="booking-form" onSubmit={handleSubmit} noValidate>
             <div>
               <h2>{copy.formTitle}</h2>
               <p>{copy.required}</p>
@@ -392,9 +461,38 @@ export function BookingPage() {
                 <textarea name={copy.fields.message} placeholder={copy.placeholders.message} />
               </label>
             </div>
-            <button type="submit" className="btn-primary booking-submit">
-              {copy.submit}
+            {/* Honeypot — hidden from users, catches bots. */}
+            <input
+              type="text"
+              name="company"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              style={{
+                position: "absolute",
+                left: "-9999px",
+                width: "1px",
+                height: "1px",
+                opacity: 0,
+              }}
+            />
+            <button
+              type="submit"
+              className="btn-primary booking-submit"
+              disabled={status === "sending"}
+            >
+              {status === "sending" ? statusCopy.sending : copy.submit}
             </button>
+            {status === "success" && (
+              <p role="status" style={{ marginTop: "1rem", color: "var(--ice)" }}>
+                {statusCopy.success}
+              </p>
+            )}
+            {status === "error" && (
+              <p role="alert" style={{ marginTop: "1rem", color: "var(--accent)" }}>
+                {statusCopy.error}
+              </p>
+            )}
           </form>
         </section>
 

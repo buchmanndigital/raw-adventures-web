@@ -6,34 +6,52 @@ import { useLang } from "@/lib/lang-context";
 
 export function ContactSection() {
   const { t } = useLang();
-  const [status, setStatus] = useState<"idle" | "error" | "success">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "error" | "success">(
+    "idle",
+  );
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const data = new FormData(form);
     const name = (data.get("name") as string)?.trim();
     const email = (data.get("email") as string)?.trim();
     const city = (data.get("city") as string)?.trim();
     const guests = data.get("guests") as string;
     const date = (data.get("date") as string)?.trim();
-    const message = (data.get("message") as string) ?? "";
+    const message = ((data.get("message") as string) ?? "").trim();
+    const company = (data.get("company") as string) ?? ""; // honeypot
 
     if (!name || !email || !city || !guests || !date) {
       setStatus("error");
       return;
     }
 
-    const subject = encodeURIComponent("Booking Enquiry – RAW.MOUNTAIN");
-    const body = encodeURIComponent(
-      `Name: ${name}\n` +
-        `Email: ${email}\n` +
-        `City/Country: ${city}\n` +
-        `Travellers: ${guests}\n` +
-        `Travel date: ${date}\n\n` +
-        `Message:\n${message}`,
-    );
-    window.location.href = `mailto:booking@raw-mountain.com?subject=${subject}&body=${body}`;
-    setStatus("success");
+    setStatus("sending");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          subject: "Booking Enquiry – RAW.MOUNTAIN",
+          replyTo: email,
+          company,
+          fields: [
+            { label: "Name", value: name },
+            { label: "Email", value: email },
+            { label: "City/Country", value: city },
+            { label: "Travellers", value: guests },
+            { label: "Travel date", value: date },
+          ],
+          message,
+        }),
+      });
+      if (!res.ok) throw new Error("send_failed");
+      setStatus("success");
+      form.reset();
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
@@ -87,8 +105,28 @@ export function ContactSection() {
             <textarea className="form-textarea form-input" name="message" placeholder="Questions, ski or snowboard, experience level..." />
           </div>
         </div>
+        {/* Honeypot — hidden from users, catches bots. */}
+        <input
+          type="text"
+          name="company"
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            left: "-9999px",
+            width: "1px",
+            height: "1px",
+            opacity: 0,
+          }}
+        />
         <div className="form-submit">
-          <button className="form-btn" type="submit" id="form-submit-btn">
+          <button
+            className="form-btn"
+            type="submit"
+            id="form-submit-btn"
+            disabled={status === "sending"}
+          >
             <Tx k="form-submit-btn" />
           </button>
           <Tx k="form-note-text" as="p" className="form-note" id="form-note-text" />
