@@ -44,17 +44,11 @@ const PARTNERS: Partner[] = [
     height: 45,
   },
   {
-    href: "https://www.snowboarder.de",
+    href: "https://www.snowboardermbm.de",
     title: "Snowboarder MBM",
-    width: 150,
-    height: 44,
-    viewBox: "0 0 380 80",
-    children: (
-      <>
-        <text x="0" y="42" fontFamily="Arial Black, sans-serif" fontWeight="900" fontSize="28" fill="white" letterSpacing="0.5">SNOWBOARDER</text>
-        <text x="55" y="72" fontFamily="Arial Black, sans-serif" fontWeight="900" fontSize="28" fill="white" letterSpacing="4">MBM</text>
-      </>
-    ),
+    src: "/partners/snowboarder-mbm.webp",
+    width: 160,
+    height: 29,
   },
 ];
 
