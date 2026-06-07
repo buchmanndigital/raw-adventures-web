@@ -1,7 +1,7 @@
 :root{--black:#0a0a0a;--white:#f5f0e8;--snow:#e8e0d0;--accent:#d4550a;--ice:#6fa8c4;--mid:#2a2a2a;--text-muted:#888;--hero-value-strip-gap:6.75rem;}
   *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{background:var(--black);color:var(--white);font-family:var(--font-barlow),sans-serif;font-weight:300;overflow-x:hidden;}
+  html{scroll-behavior:smooth;overflow-x:hidden;}
+  body{background:var(--black);color:var(--white);font-family:var(--font-barlow),sans-serif;font-weight:300;overflow-x:hidden;max-width:100%;}
 
   /* LANG BAR */
   .lang-bar{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:flex-end;align-items:center;padding:0.45rem 4rem;background:rgba(5,5,5,0.97);border-bottom:1px solid #1a1a1a;gap:0.3rem;}
@@ -514,7 +514,7 @@
   .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
   .form-group.full { grid-column: 1 / -1; }
   .form-label { font-family: var(--font-barlow-cond), sans-serif; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); }
-  .form-input, .form-select, .form-textarea { background: #111; border: 1px solid #222; color: var(--white); font-family: var(--font-barlow), sans-serif; font-size: 0.95rem; font-weight: 300; padding: 0.85rem 1rem; outline: none; transition: border-color 0.2s; width: 100%; border-radius: 0; -webkit-appearance: none; appearance: none; }
+  .form-input, .form-select, .form-textarea { background: #111; border: 1px solid #222; color: var(--white); font-family: var(--font-barlow), sans-serif; font-size: max(16px, 1rem); font-weight: 300; padding: 0.85rem 1rem; outline: none; transition: border-color 0.2s; width: 100%; border-radius: 0; -webkit-appearance: none; appearance: none; }
   .form-input::placeholder, .form-textarea::placeholder { color: rgba(255,255,255,0.35); }
   .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--accent); }
   .form-select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; }
