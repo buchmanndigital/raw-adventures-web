@@ -57,7 +57,7 @@ const PARTNERS: Partner[] = [
     ),
   },
   {
-    href: "https://www.ridersheaven.de",
+    href: "https://www.ridersheaven.com",
     title: "Riders Heaven",
     src: "/partners/riders-heaven.webp",
     width: 198,
