@@ -38,16 +38,9 @@ const PARTNERS: Partner[] = [
   {
     href: "https://www.thirtytwo.com",
     title: "ThirtyTwo",
-    width: 120,
-    height: 44,
-    viewBox: "0 0 220 80",
-    children: (
-      <>
-        <text x="0" y="58" fontFamily="Arial Black, sans-serif" fontWeight="900" fontSize="58" fill="white" letterSpacing="-2">32</text>
-        <text x="75" y="38" fontFamily="Arial Narrow, Arial, sans-serif" fontWeight="700" fontSize="22" fill="white">THIRTY</text>
-        <text x="75" y="62" fontFamily="Arial Narrow, Arial, sans-serif" fontWeight="700" fontSize="22" fill="white">TWO</text>
-      </>
-    ),
+    src: "/partners/thirtytwo.webp",
+    width: 119,
+    height: 36,
   },
   {
     href: "https://www.ridersheaven.com",
