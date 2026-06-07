@@ -1,5 +1,10 @@
 import { NextResponse } from "next/server";
-import { getTransport, getRecipient, getSender } from "@/lib/mailer";
+import {
+  getTransport,
+  getRecipient,
+  getSender,
+  renderEnquiryEmail,
+} from "@/lib/mailer";
 
 // nodemailer needs the Node.js runtime (not Edge); never cache this handler.
 export const runtime = "nodejs";
@@ -17,14 +22,6 @@ type Payload = {
 };
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-function escapeHtml(value: string): string {
-  return value
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
-}
 
 export async function POST(req: Request) {
   let body: Payload;
@@ -59,22 +56,7 @@ export async function POST(req: Request) {
   if (message) textLines.push("", "Nachricht:", message);
   const text = textLines.join("\n");
 
-  const htmlRows = fields
-    .map(
-      (f) =>
-        `<tr><td style="padding:4px 12px 4px 0;color:#888;white-space:nowrap;vertical-align:top">${escapeHtml(
-          f.label,
-        )}</td><td style="padding:4px 0;color:#111">${escapeHtml(f.value.trim())}</td></tr>`,
-    )
-    .join("");
-  const htmlMessage = message
-    ? `<p style="margin:16px 0 4px;color:#888">Nachricht:</p><p style="margin:0;color:#111;white-space:pre-wrap">${escapeHtml(
-        message,
-      )}</p>`
-    : "";
-  const html = `<div style="font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5"><h2 style="margin:0 0 16px;font-size:18px">${escapeHtml(
-    subject,
-  )}</h2><table style="border-collapse:collapse">${htmlRows}</table>${htmlMessage}</div>`;
+  const html = renderEnquiryEmail(subject, fields, message);
 
   try {
     const transport = getTransport();
