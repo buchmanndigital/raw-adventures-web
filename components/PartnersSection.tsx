@@ -7,8 +7,11 @@ type Partner = {
   title: string;
   width: number;
   height: number;
-  viewBox: string;
-  children: React.ReactNode;
+  /** Raster logo (white on transparent). When set, rendered as an <img>. */
+  src?: string;
+  /** Inline SVG fallback for text-based placeholder logos. */
+  viewBox?: string;
+  children?: React.ReactNode;
 };
 
 const PARTNERS: Partner[] = [
@@ -56,15 +59,9 @@ const PARTNERS: Partner[] = [
   {
     href: "https://www.ridersheaven.de",
     title: "Riders Heaven",
-    width: 160,
-    height: 44,
-    viewBox: "0 0 300 80",
-    children: (
-      <>
-        <text x="0" y="38" fontFamily="Arial Black, sans-serif" fontWeight="900" fontSize="26" fill="white" letterSpacing="0.5">RIDERS</text>
-        <text x="0" y="70" fontFamily="Arial Black, sans-serif" fontWeight="900" fontSize="26" fill="white" letterSpacing="0.5">HEAVEN</text>
-      </>
-    ),
+    src: "/partners/riders-heaven.webp",
+    width: 198,
+    height: 45,
   },
   {
     href: "https://www.snowboarder.de",
@@ -100,16 +97,28 @@ export function PartnersSection() {
             title={p.title}
             className="partner-logo"
           >
-            <svg
-              width={p.width}
-              height={p.height}
-              viewBox={p.viewBox}
-              fill="white"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-label={p.title}
-            >
-              {p.children}
-            </svg>
+            {p.src ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={p.src}
+                width={p.width}
+                height={p.height}
+                alt={p.title}
+                loading="lazy"
+                decoding="async"
+              />
+            ) : (
+              <svg
+                width={p.width}
+                height={p.height}
+                viewBox={p.viewBox}
+                fill="white"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-label={p.title}
+              >
+                {p.children}
+              </svg>
+            )}
           </a>
         ))}
       </div>
