@@ -23,17 +23,11 @@ const PARTNERS: Partner[] = [
     height: 38,
   },
   {
-    href: "https://www.bentmetalbindings.com",
+    href: "https://www.bentmetal.com",
     title: "Bent Metal",
+    src: "/partners/bent-metal.webp",
     width: 150,
-    height: 44,
-    viewBox: "0 0 280 80",
-    children: (
-      <>
-        <text x="0" y="38" fontFamily="Arial Black, sans-serif" fontWeight="900" fontSize="30" fill="white" letterSpacing="1">BENT</text>
-        <text x="0" y="72" fontFamily="Arial Black, sans-serif" fontWeight="900" fontSize="30" fill="white" letterSpacing="1">METAL</text>
-      </>
-    ),
+    height: 34,
   },
   {
     href: "https://www.thirtytwo.com",
