@@ -18,16 +18,9 @@ const PARTNERS: Partner[] = [
   {
     href: "https://www.lib-tech.com",
     title: "Lib Tech",
-    width: 110,
-    height: 44,
-    viewBox: "0 0 200 80",
-    children: (
-      <>
-        <text x="0" y="55" fontFamily="Arial Black, sans-serif" fontWeight="900" fontSize="52" fill="white" letterSpacing="-2">LIB</text>
-        <text x="105" y="55" fontFamily="Arial Black, sans-serif" fontWeight="900" fontSize="52" fill="white" letterSpacing="-2">TECH</text>
-        <line x1="100" y1="5" x2="100" y2="65" stroke="white" strokeWidth="3" />
-      </>
-    ),
+    src: "/partners/lib-tech.webp",
+    width: 130,
+    height: 38,
   },
   {
     href: "https://www.bentmetalbindings.com",
