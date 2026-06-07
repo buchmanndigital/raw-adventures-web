@@ -462,13 +462,14 @@
   @media (max-width: 768px) {
     #gallery, #gallery2 { padding: 3rem 0; }
     .gallery-label, .gallery-title { padding-left: 1.5rem; padding-right: 1.5rem; }
-    /* Single horizontally-scrollable row on phones — uniform cropped tiles */
-    .gallery-grid { columns: auto; display: flex; flex-wrap: nowrap; gap: 8px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 0 1.5rem; }
+    /* Single horizontally-scrollable row on phones — every photo shares the
+       same height, the width follows its aspect ratio, nothing is cropped. */
+    .gallery-grid { columns: auto; display: flex; flex-wrap: nowrap; align-items: center; gap: 8px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 0 1.5rem; }
     .gallery-grid::-webkit-scrollbar { display: none; }
-    .gallery-item { flex: 0 0 80%; margin-bottom: 0; aspect-ratio: 4/3; scroll-snap-align: center; }
-    .gallery-item img { height: 100%; object-fit: cover; }
+    .gallery-item { flex: 0 0 auto; width: auto; margin-bottom: 0; aspect-ratio: auto; background: transparent; scroll-snap-align: center; }
+    .gallery-item img { height: clamp(300px, 56vh, 460px); width: auto; object-fit: contain; }
   }
-  @media (max-width: 480px) { .gallery-item, .gallery-item.tall, .gallery-item.wide { flex: 0 0 85%; } }
+  @media (max-width: 480px) { .gallery-item img { height: clamp(260px, 48vh, 380px); } }
 
   /* ── HAMBURGER + MOBILE MENU ── */
   .nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 0.4rem; z-index: 301; }
