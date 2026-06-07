@@ -33,9 +33,3 @@ export function useHashLink(): (id: string) => string {
     [base],
   );
 }
-
-/** Booking page for the current tour, e.g. `/tours/slug/book` */
-export function useBookingLink(): string {
-  const base = useBasePath();
-  return useMemo(() => `${base}/book`, [base]);
-}

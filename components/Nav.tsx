@@ -1,12 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { useBookingLink, useHashLink } from "@/components/BasePathContext";
+import { useHashLink } from "@/components/BasePathContext";
 import { Tx } from "@/components/Tx";
 
 export function Nav() {
   const h = useHashLink();
-  const bookingLink = useBookingLink();
   const [menuOpen, setMenuOpen] = useState(false);
   const close = () => setMenuOpen(false);
 
@@ -53,7 +52,7 @@ export function Nav() {
             </a>
           </li>
         </ul>
-        <a href={bookingLink} className="nav-cta" id="nav-book">
+        <a href={h("contact")} className="nav-cta" id="nav-book">
           <Tx k="nav-book" />
         </a>
         <button
@@ -111,7 +110,7 @@ export function Nav() {
             </a>
           </li>
           <li>
-            <a href={bookingLink} onClick={close} className="mob-cta" id="mob-book">
+            <a href={h("contact")} onClick={close} className="mob-cta" id="mob-book">
               <Tx k="mob-book" />
             </a>
           </li>
