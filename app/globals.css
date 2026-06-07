@@ -446,10 +446,10 @@
   .gallery-label { font-family: var(--font-barlow-cond), sans-serif; font-size: 0.7rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
   .gallery-title { font-family: var(--font-bebas), sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); line-height: 0.95; color: var(--white); margin-bottom: 3rem; }
   .gallery-title span { color: var(--accent); }
-  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: auto; gap: 4px; }
-  .gallery-item { position: relative; overflow: hidden; background: #1a1a1a; aspect-ratio: 4/3; cursor: pointer; }
-  .gallery-item.tall { grid-row: span 2; aspect-ratio: unset; }
-  .gallery-item.wide { grid-column: span 2; }
+  /* Masonry via CSS multicol: each photo keeps its natural ratio, columns
+     pack tightly with no leftover gaps. */
+  .gallery-grid { columns: 3; column-gap: 4px; }
+  .gallery-item { position: relative; overflow: hidden; background: #1a1a1a; cursor: pointer; break-inside: avoid; margin-bottom: 4px; }
   .gallery-placeholder { width: 100%; height: 100%; min-height: 240px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; background: #141414; border: 2px dashed #2a2a2a; transition: border-color 0.2s; }
   .gallery-item.tall .gallery-placeholder { min-height: 500px; }
   .gallery-item.wide .gallery-placeholder { min-height: 240px; }
@@ -457,10 +457,18 @@
   .gallery-placeholder svg { width: 40px; height: 40px; opacity: 0.2; }
   .gallery-placeholder-text { font-family: var(--font-barlow-cond), sans-serif; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: #444; }
   .gallery-placeholder-size { font-family: var(--font-barlow-cond), sans-serif; font-size: 0.65rem; letter-spacing: 0.1em; color: #2a2a2a; margin-top: 0.3rem; }
-  .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+  .gallery-item img { width: 100%; height: auto; display: block; transition: transform 0.5s ease; }
   .gallery-item:hover img { transform: scale(1.05); }
-  @media (max-width: 768px) { #gallery, #gallery2 { padding: 3rem 1.5rem; } .gallery-grid { grid-template-columns: 1fr 1fr; } .gallery-item.tall { grid-row: span 1; aspect-ratio: 4/3; } .gallery-item.wide { grid-column: span 2; } }
-  @media (max-width: 480px) { .gallery-grid { grid-template-columns: 1fr; } .gallery-item.wide { grid-column: span 1; } }
+  @media (max-width: 768px) {
+    #gallery, #gallery2 { padding: 3rem 0; }
+    .gallery-label, .gallery-title { padding-left: 1.5rem; padding-right: 1.5rem; }
+    /* Single horizontally-scrollable row on phones — uniform cropped tiles */
+    .gallery-grid { columns: auto; display: flex; flex-wrap: nowrap; gap: 8px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 0 1.5rem; }
+    .gallery-grid::-webkit-scrollbar { display: none; }
+    .gallery-item { flex: 0 0 80%; margin-bottom: 0; aspect-ratio: 4/3; scroll-snap-align: center; }
+    .gallery-item img { height: 100%; object-fit: cover; }
+  }
+  @media (max-width: 480px) { .gallery-item, .gallery-item.tall, .gallery-item.wide { flex: 0 0 85%; } }
 
   /* ── HAMBURGER + MOBILE MENU ── */
   .nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 0.4rem; z-index: 301; }
